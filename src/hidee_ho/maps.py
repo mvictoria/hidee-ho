@@ -61,13 +61,13 @@ STATE_ABBREVIATIONS = {
 
 def state_abbreviation(state: str) -> str:
     state_name = state.capitalize()
+
     if state.upper() in STATE_ABBREVIATIONS.values():
         return state.upper()
+    elif state_name not in STATE_ABBREVIATIONS:
+        raise KeyError(f"{state_name} is not a State")
     else:
-        try:
-            return STATE_ABBREVIATIONS[state_name]
-        except KeyError:
-            raise Exception(f"{state_name} is not a State Name")
+        return STATE_ABBREVIATIONS[state_name]
 
 
 def list_abbreviations(states: list[str]) -> list[str]:
