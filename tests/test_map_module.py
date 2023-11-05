@@ -13,6 +13,10 @@ def test_state_with_whitespace():
     assert maps.state_abbreviation(" washington ") == "WA"
 
 
+def test_state_with_two_words():
+    assert maps.state_abbreviation("new york ") == "NY"
+
+
 def test_state_abbreviation():
     assert maps.state_abbreviation("va") == "VA"
 
