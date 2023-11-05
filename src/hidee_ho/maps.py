@@ -81,13 +81,12 @@ def list_abbreviations(states: list[str]) -> list[str]:
 
 
 def mapper(states: list[str]) -> go.Figure:
-    color = [1 for s in states]
-
-    fig = go.Figure(data=go.Choropleth(locations=states))
+    _states = list_abbreviations(states)
+    color = [1 for s in _states]
 
     fig = go.Figure(
         data=go.Choropleth(
-            locations=states,  # Spatial coordinates
+            locations=_states,  # Spatial coordinates
             z=color,  # Data to be color-coded
             locationmode="USA-states",  # set of locations match entries in `locations`
             colorscale="Reds",
