@@ -9,6 +9,10 @@ def test_state():
     assert maps.state_abbreviation("ViRgInIa") == "VA"
 
 
+def test_state_with_whitespace():
+    assert maps.state_abbreviation(" washington ") == "WA"
+
+
 def test_state_abbreviation():
     assert maps.state_abbreviation("va") == "VA"
 
