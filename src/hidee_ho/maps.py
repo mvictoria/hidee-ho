@@ -71,7 +71,12 @@ def state_abbreviation(state: str) -> str:
 
 
 def list_abbreviations(states: list[str]) -> list[str]:
-    _states = [state_abbreviation(state) for state in states]
+    _states = []
+
+    if isinstance(states, str):
+        _states = [state_abbreviation(states)]
+    else:
+        _states = [state_abbreviation(state) for state in states]
     return _states
 
 
