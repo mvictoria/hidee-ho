@@ -41,7 +41,7 @@ jobs:
           key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
       - name: install package
-        if: steps.cached-venv.outputs.cached-hit != 'true'
+        if: steps.cached-venv.outputs.cache-hit != 'true'
         run: |
           poetry install --no-interaction
 
