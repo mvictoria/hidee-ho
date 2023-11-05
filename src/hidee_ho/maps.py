@@ -61,7 +61,7 @@ STATE_ABBREVIATIONS = {
 
 def state_abbreviation(state: str) -> str:
     state = state.strip()
-    
+
     state_name = state.title()
 
     if state.upper() in STATE_ABBREVIATIONS.values():
