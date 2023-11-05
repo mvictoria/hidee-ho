@@ -27,12 +27,12 @@ def test_state_does_not_exist():
 
 
 @pytest.fixture
-def test_map():
-    filename = Path("compare.html")
+def va_map() -> Path:
+    filename = Path("compare_map.html")
     maps.mapper("va").write_html(filename)
     yield filename
     filename.unlink()
 
 
-def test_map_module(test_map):
-    assert filecmp.cmp(test_map, "./tests/map.html") == 0
+def test_map_output(va_map: Path):
+    assert filecmp.cmp(va_map, "./tests/va_map.html") == 0
