@@ -10,8 +10,12 @@ def test_state_abbrev():
     assert maps.state_abbreviation("va") == "VA"
 
 
-def test_states():
+def test_muliple_states():
     assert maps.list_abbreviations(["Virginia", "PA"]) == ["VA", "PA"]
+
+
+def test_list_with_one_state():
+    assert maps.list_abbreviations("Virginia") == ["VA"]
 
 
 def test_state_does_not_exist():
