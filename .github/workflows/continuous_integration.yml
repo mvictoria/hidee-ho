@@ -43,6 +43,8 @@ jobs:
       - name: install package
         if: steps.cached-venv.outputs.cache-hit != 'true'
         run: |
+          poetry config virtualenvs.create true
+          poetry config virtualenvs.in-project true
           poetry install --no-interaction
 
       - name: linting
