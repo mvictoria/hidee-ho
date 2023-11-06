@@ -48,10 +48,10 @@ jobs:
       - name: linting
         run: |
           source .venv/bin/activate
-          black . --check
+          ruff format . --check
           ruff .
 
       - name: test
         run: |
           source .venv/bin/activate
-          pytest --cov
+          pytest --cov tests/

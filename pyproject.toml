@@ -17,7 +17,6 @@ plotly = "^5.18.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.1.4"
-black = "^23.10.1"
 pytest = "^7.4.3"
 pytest-cov = "^4.1.0"
 pip-audit = "^2.6.1"
