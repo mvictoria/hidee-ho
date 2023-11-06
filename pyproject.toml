@@ -6,6 +6,10 @@ authors = ["Micah Victoria <micah.victoria@gmail.com>"]
 readme = "README.md"
 packages = [{include="hidee_ho", from="src"}]
 
+
+[tool.poetry.scripts]
+hidee-ho = "hidee_ho.main:cli"
+
 [tool.poetry.dependencies]
 python = "^3.10"
 click = "^8.1.7"

@@ -5,8 +5,8 @@ import click
 from hidee_ho.maps import mapper
 
 
-@click.command()
-@click.option("--states", "-s", help="list of states to color")
+@click.command(context_settings={"ignore_unknown_options": True})
+@click.argument("states", nargs=-1)
 @click.option("--output", "-o", help="filename to create")
 @click.option(
     "--force", "-f", default=False, is_flag=True, help="overwrite file if it exists"

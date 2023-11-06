@@ -5,6 +5,14 @@ import pytest
 from hidee_ho import maps
 
 
+@pytest.fixture
+def va_map() -> Path:
+    filename = Path("compare_map.html")
+    maps.mapper("va").write_html(filename)
+    yield filename
+    filename.unlink()
+
+
 def test_state():
     assert maps.state_abbreviation("ViRgInIa") == "VA"
 
@@ -32,14 +40,6 @@ def test_list_with_one_state():
 def test_state_does_not_exist():
     with pytest.raises(KeyError):
         maps.state_abbreviation("Not A State")
-
-
-@pytest.fixture
-def va_map() -> Path:
-    filename = Path("compare_map.html")
-    maps.mapper("va").write_html(filename)
-    yield filename
-    filename.unlink()
 
 
 def test_map_output(va_map: Path):
