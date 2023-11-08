@@ -13,6 +13,11 @@ def va_map() -> Path:
     filename.unlink()
 
 
+def test_valid_state():
+    assert maps.valid_state("VA")
+    assert not maps.valid_state("Not A State")
+
+
 def test_state():
     assert maps.state_abbreviation("ViRgInIa") == "VA"
 

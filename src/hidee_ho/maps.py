@@ -55,16 +55,24 @@ STATE_ABBREVIATIONS = {
 }
 
 
+def valid_state(state: str) -> bool:
+    is_valid = (
+        state.upper() in STATE_ABBREVIATIONS.values()
+        or state.title() in STATE_ABBREVIATIONS
+    )
+    return is_valid
+
+
 def state_abbreviation(state: str) -> str:
     state = state.strip()
 
-    state_name = state.title()
+    if not valid_state(state):
+        raise KeyError(f"{state} is not a State")
 
     if state.upper() in STATE_ABBREVIATIONS.values():
         return state.upper()
-    elif state_name not in STATE_ABBREVIATIONS:
-        raise KeyError(f"{state_name} is not a State")
     else:
+        state_name = state.title()
         return STATE_ABBREVIATIONS[state_name]
 
 
