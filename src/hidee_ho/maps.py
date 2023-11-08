@@ -56,11 +56,20 @@ STATE_ABBREVIATIONS = {
 
 
 def valid_state(state: str) -> bool:
-    is_valid = (
+    """
+    Check if a given state is valid.
+
+    Args:
+        state: A string representing a state.  Full name or abbreviation
+
+    Returns:
+        True if the state is valid, False otherwise.
+    """
+    state = state.strip()
+    return (
         state.upper() in STATE_ABBREVIATIONS.values()
         or state.title() in STATE_ABBREVIATIONS
     )
-    return is_valid
 
 
 def state_abbreviation(state: str) -> str:
