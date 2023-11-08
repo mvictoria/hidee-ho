@@ -15,7 +15,7 @@ def cli(states: list[str], output: str, force=False):
     """
     This function generates a map based on the given states.
 
-    Parameters:
+    Parameters  :
     - states: A list of states to include in the map.
 
     Optional Parameters:
@@ -32,12 +32,15 @@ def cli(states: list[str], output: str, force=False):
 
     my_map = maps.mapper(states)
 
-    _output = Path(output)
+    if output:
+        _output = Path(output)
 
-    if not force and _output.exists():
-        click.Abort(f"{_output} already exists, use the --force flag to overwrite")
+        if not force and _output.exists():
+            click.Abort(f"{_output} already exists, use the --force flag to overwrite")
 
-    my_map.write_html(output) if output else my_map.show()
+        my_map.write_html(output)
+    else:
+        my_map.show()
 
 
 if __name__ == "__main__":
